@@ -1,5 +1,14 @@
 # @graphql-codegen/typescript-urql
 
+## 2.0.6
+
+### Patch Changes
+
+- d9212aa0: fix(visitor-plugin-common): guard for a runtime type error
+- Updated dependencies [d9212aa0]
+  - @graphql-codegen/visitor-plugin-common@1.19.2
+  - @graphql-codegen/plugin-helpers@1.18.5
+
 ## 2.0.5
 
 ### Patch Changes

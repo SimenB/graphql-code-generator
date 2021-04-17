@@ -1,5 +1,14 @@
 # @graphql-codegen/typescript-react-offix
 
+## 1.17.13
+
+### Patch Changes
+
+- d9212aa0: fix(visitor-plugin-common): guard for a runtime type error
+- Updated dependencies [d9212aa0]
+  - @graphql-codegen/visitor-plugin-common@1.19.2
+  - @graphql-codegen/plugin-helpers@1.18.5
+
 ## 1.17.12
 
 ### Patch Changes

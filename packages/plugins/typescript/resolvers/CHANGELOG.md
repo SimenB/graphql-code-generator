@@ -1,5 +1,15 @@
 # @graphql-codegen/typescript-resolvers
 
+## 1.19.1
+
+### Patch Changes
+
+- d9212aa0: fix(visitor-plugin-common): guard for a runtime type error
+- Updated dependencies [d9212aa0]
+  - @graphql-codegen/visitor-plugin-common@1.19.2
+  - @graphql-codegen/typescript@1.21.2
+  - @graphql-codegen/plugin-helpers@1.18.5
+
 ## 1.19.0
 
 ### Minor Changes
