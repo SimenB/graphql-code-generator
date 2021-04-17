@@ -1,5 +1,15 @@
 # @graphql-codegen/flow-operations
 
+## 1.18.8
+
+### Patch Changes
+
+- d9212aa0: fix(visitor-plugin-common): guard for a runtime type error
+- Updated dependencies [d9212aa0]
+  - @graphql-codegen/flow@1.18.6
+  - @graphql-codegen/visitor-plugin-common@1.19.2
+  - @graphql-codegen/plugin-helpers@1.18.5
+
 ## 1.18.7
 
 ### Patch Changes
