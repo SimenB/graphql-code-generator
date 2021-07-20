@@ -257,7 +257,7 @@ export interface TypeScriptPluginConfig extends RawTypesConfig {
    *    wrapEntireFieldDefinitions: false
    * ```
    */
-  wrapEntireFieldDefinitions?: boolean
+  wrapEntireFieldDefinitions?: boolean;
   /**
    * @name entireFieldWrapperValue
    * @type string
@@ -274,6 +274,16 @@ export interface TypeScriptPluginConfig extends RawTypesConfig {
    *  config:
    *    entireFieldWrapperValue: T
    * ```
-   */;
+   */
   entireFieldWrapperValue?: string;
+  /**
+   * @description Allow using enum string values directly.
+   *
+   * @exampleMarkdown
+   * ```yml
+   *   config:
+   *     allowEnumStringTypes: true
+   * ```
+   */
+  allowEnumStringTypes?: boolean;
 }

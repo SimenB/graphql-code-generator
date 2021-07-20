@@ -30,6 +30,8 @@ export interface ParsedConfig {
   fragmentImports: ImportDeclaration<FragmentImport>[];
   immutableTypes: boolean;
   useTypeImports: boolean;
+  dedupeFragments: boolean;
+  allowEnumStringTypes: boolean;
 }
 
 export interface RawConfig {
@@ -186,6 +188,18 @@ export interface RawConfig {
    * @ignore
    */
   globalNamespace?: boolean;
+  /**
+   * @description  Removes fragment duplicates for reducing data transfer.
+   * It is done by removing sub-fragments imports from fragment definition
+   * Instead - all of them are imported to the Operation node.
+   * @type boolean
+   * @default false
+   */
+  dedupeFragments?: boolean;
+  /**
+   * @ignore
+   */
+  allowEnumStringTypes?: boolean;
 }
 
 export class BaseVisitor<TRawConfig extends RawConfig = RawConfig, TPluginConfig extends ParsedConfig = ParsedConfig> {
@@ -203,6 +217,8 @@ export class BaseVisitor<TRawConfig extends RawConfig = RawConfig, TPluginConfig
       addTypename: !rawConfig.skipTypename,
       nonOptionalTypename: !!rawConfig.nonOptionalTypename,
       useTypeImports: !!rawConfig.useTypeImports,
+      dedupeFragments: !!rawConfig.dedupeFragments,
+      allowEnumStringTypes: !!rawConfig.allowEnumStringTypes,
       ...((additionalConfig || {}) as any),
     };
 

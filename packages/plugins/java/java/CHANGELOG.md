@@ -1,5 +1,64 @@
 # @graphql-codegen/java
 
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies [df19a4ed]
+- Updated dependencies [470336a1]
+- Updated dependencies [9005cc17]
+  - @graphql-codegen/visitor-plugin-common@1.22.0
+  - @graphql-codegen/plugin-helpers@1.18.8
+  - @graphql-codegen/java-common@1.17.13
+
+## 2.0.3
+
+### Patch Changes
+
+- Updated dependencies [6762aff5]
+  - @graphql-codegen/visitor-plugin-common@1.21.3
+  - @graphql-codegen/java-common@1.17.12
+
+## 2.0.2
+
+### Patch Changes
+
+- Updated dependencies [6aaecf1c]
+  - @graphql-codegen/visitor-plugin-common@1.21.2
+  - @graphql-codegen/java-common@1.17.11
+
+## 2.0.1
+
+### Patch Changes
+
+- Updated dependencies [cf1e5abc]
+- Updated dependencies [541e5497]
+  - @graphql-codegen/visitor-plugin-common@1.21.1
+  - @graphql-codegen/java-common@1.17.10
+
+## 2.0.0
+
+### Major Changes
+
+- 7ae711cc: Replace java reserved keyword new with \_new
+
+### Minor Changes
+
+- 7ae711cc: Empty constructor changed to be a configuration option (default false) to fix breaking change
+
+### Patch Changes
+
+- Updated dependencies [dfd25caf]
+- Updated dependencies [8da7dff6]
+  - @graphql-codegen/visitor-plugin-common@1.21.0
+  - @graphql-codegen/plugin-helpers@1.18.7
+
+## 2.0.0
+
+### Major Changes
+
+- 9481e469: Replace java reserved keyword new with \_new
+
 ## 1.19.0
 
 ### Minor Changes

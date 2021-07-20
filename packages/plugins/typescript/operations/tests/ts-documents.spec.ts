@@ -1099,7 +1099,7 @@ describe('TypeScript Operations Plugin', () => {
       });
       expect(content).toBeSimilarStringTo(`
         export type UnionTestQuery = (
-          { __typename?: 'Query' } 
+          { __typename?: 'Query' }
           & { unionTest?: Maybe<(
             { __typename?: 'User' }
             & Pick<User, 'id'>
@@ -1908,12 +1908,12 @@ describe('TypeScript Operations Plugin', () => {
           & BFragment
         ) | { __typename?: 'B' }> }
       );
-  
+
         export type AFragment = (
           { __typename?: 'A' }
           & Pick<A, 'id'>
         );
-  
+
         export type BFragment = (
           { __typename?: 'A' }
           & Pick<A, 'x'>
@@ -3195,7 +3195,7 @@ describe('TypeScript Operations Plugin', () => {
 
       expect(content).toBeSimilarStringTo(`
         export type UserQuery = (
-          { __typename?: 'Query' } 
+          { __typename?: 'Query' }
           & { user?: Maybe<(
             { __typename?: 'User' }
             & Pick<User, 'id' | 'login'>
@@ -3453,14 +3453,14 @@ describe('TypeScript Operations Plugin', () => {
         { __typename?: 'AdditionalInfo' }
         & Pick<AdditionalInfo, 'message'>
       );
-  
+
       type UserResult1_User_Fragment = (
         { __typename?: 'User' }
         & Pick<User, 'id'>
       );
-  
+
       type UserResult1_Error2_Fragment = { __typename?: 'Error2' };
-  
+
       type UserResult1_Error3_Fragment = (
         { __typename?: 'Error3' }
         & { info?: Maybe<(
@@ -3468,21 +3468,21 @@ describe('TypeScript Operations Plugin', () => {
           & Pick<AdditionalInfo, 'message2'>
         )> }
       );
-  
+
       export type UserResult1Fragment = UserResult1_User_Fragment | UserResult1_Error2_Fragment | UserResult1_Error3_Fragment;
-  
+
       type UserResult_User_Fragment = (
         { __typename?: 'User' }
         & Pick<User, 'id'>
       );
-  
+
       type UserResult_Error2_Fragment = (
         { __typename?: 'Error2' }
         & Pick<Error2, 'message'>
       );
-  
+
       type UserResult_Error3_Fragment = { __typename?: 'Error3' };
-  
+
       export type UserResultFragment = UserResult_User_Fragment | UserResult_Error2_Fragment | UserResult_Error3_Fragment;`);
     });
 
@@ -3771,7 +3771,7 @@ describe('TypeScript Operations Plugin', () => {
           & Pick<User, 'id'>
         ) }
       );
-      
+
       export type UserLoginQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
       export type UserLoginQueryQuery = (
@@ -3781,7 +3781,7 @@ describe('TypeScript Operations Plugin', () => {
           & Pick<User, 'login'>
         ) }
       );
-      
+
       export declare const UserIdQuery: import("graphql").DocumentNode;
       export declare const UserLoginQuery: import("graphql").DocumentNode;
       `);
@@ -4170,7 +4170,7 @@ describe('TypeScript Operations Plugin', () => {
         if (q.hotel) {
             const t1 = q.hotel.gpsPosition.lat
         }
-        
+
         if (q.transport) {
             const t2 = q.transport.id;
         }
@@ -4701,6 +4701,64 @@ function test(q: GetEntityBrandDataQuery): void {
       `);
     });
 
+    it('#3950 - Invalid output with fragments and skipTypename: true', async () => {
+      const schema = buildSchema(/* GraphQL */ `
+        type Query {
+          animals: [Animal!]!
+        }
+
+        interface Animal {
+          id: ID!
+        }
+        type Duck implements Animal {
+          id: ID!
+        }
+        type Lion implements Animal {
+          id: ID!
+        }
+        type Puma implements Animal {
+          id: ID!
+        }
+        type Wolf implements Animal {
+          id: ID!
+        }
+      `);
+
+      const query = parse(/* GraphQL */ `
+        fragment CatFragment on Animal {
+          ... on Lion {
+            id
+          }
+          ... on Puma {
+            id
+          }
+        }
+
+        query kitty {
+          animals {
+            ...CatFragment
+          }
+        }
+      `);
+
+      const { content } = await plugin(
+        schema,
+        [{ location: '', document: query }],
+        {
+          skipTypename: true,
+        },
+        {
+          outputFile: 'graphql.ts',
+        }
+      );
+
+      expect(content).toContain('type CatFragment_Duck_Fragment = {}');
+      expect(content).toContain('type CatFragment_Wolf_Fragment = {}');
+      expect(content).toContain(
+        'export type KittyQuery = { animals: Array<CatFragment_Duck_Fragment | CatFragment_Lion_Fragment | CatFragment_Puma_Fragment | CatFragment_Wolf_Fragment> };'
+      );
+    });
+
     it('#2489 - Union that only covers one possible type with selection set and no typename', async () => {
       const schema = buildSchema(/* GraphQL */ `
         type NotFoundError {
@@ -4778,6 +4836,38 @@ function test(q: GetEntityBrandDataQuery): void {
       await validate(content, config);
     });
 
+    it('#5352 - Prevent array input coercion if arrayInputCoercion = false', async () => {
+      const schema = buildSchema(/* GraphQL */ `
+        type User {
+          id: ID!
+        }
+
+        type Query {
+          search(testArray: [String], requireString: [String]!, innerRequired: [String!]!): [User!]
+        }
+      `);
+
+      const ast = parse(/* GraphQL */ `
+        query user($testArray: [String], $requireString: [String]!, $innerRequired: [String!]!) {
+          search(testArray: $testArray, requireString: $requireString, innerRequired: $innerRequired) {
+            id
+          }
+        }
+      `);
+      const config = { preResolveTypes: true, arrayInputCoercion: false };
+      const { content } = await plugin(schema, [{ location: '', document: ast }], config, {
+        outputFile: 'graphql.ts',
+      });
+
+      expect(content).toBeSimilarStringTo(`
+      export type UserQueryVariables = Exact<{
+        testArray?: Maybe<Array<Maybe<Scalars['String']>>>;
+        requireString: Array<Maybe<Scalars['String']>>;
+        innerRequired: Array<Scalars['String']>;
+      }>;`);
+      await validate(content, config);
+    });
+
     it('#5263 - inline fragment spread on interface field results in incorrect types', async () => {
       const schema = buildSchema(/* GraphQL */ `
         interface Entity {
@@ -4849,6 +4939,8 @@ function test(q: GetEntityBrandDataQuery): void {
         type User {
           name: String!
           address: String!
+          nicknames: [String!]
+          parents: [User!]!
         }
       `);
 
@@ -4857,6 +4949,8 @@ function test(q: GetEntityBrandDataQuery): void {
           user {
             name
             address @include(if: $showAddress)
+            nicknames @include(if: $showNicknames)
+            parents @include(if: $showParents)
           }
         }
       `);
@@ -4877,8 +4971,8 @@ function test(q: GetEntityBrandDataQuery): void {
         showAddress: Scalars['Boolean'];
       }>;
 
-      
-      export type UserQuery = { __typename?: 'Query', user: { __typename?: 'User', name: string, address?: Maybe<string> } };`);
+
+      export type UserQuery = { __typename?: 'Query', user: { __typename?: 'User', name: string, address?: Maybe<string>, nicknames?: Maybe<Array<string>>, parents?: Maybe<Array<User>> } };`);
     });
 
     it('objects with @skip, @include should pre resolve into optional', async () => {
@@ -4979,13 +5073,13 @@ function test(q: GetEntityBrandDataQuery): void {
         showAddress: Scalars['Boolean'];
         showName: Scalars['Boolean'];
       }>;
-  
-      
+
+
       export type UserQuery = (
         { __typename?: 'Query' }
         & { user: (
           { __typename?: 'User' }
-          & MakeOptional<Pick<User, 'id' | 'name'>, 'name'>      
+          & MakeOptional<Pick<User, 'id' | 'name'>, 'name'>
           & { address?: Maybe<(
             { __typename?: 'Address' }
             & Pick<Address, 'city'>
@@ -5033,7 +5127,7 @@ function test(q: GetEntityBrandDataQuery): void {
 
       expect(content).toBeSimilarStringTo(`
         export type UserQueryVariables = Exact<{ [key: string]: never; }>;
-        
+
         export type UserQuery = (
           { __typename?: 'Query' }
           & { user: (

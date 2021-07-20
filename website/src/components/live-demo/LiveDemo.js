@@ -6,9 +6,10 @@ import { generate } from './generate';
 import { Loading } from '../ui/Loading';
 import classes from './styles.module.css';
 import Select from 'react-select';
-import useThemeContext from '@theme/hooks/useThemeContext';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import ReactMarkdown from 'react-markdown';
+import LiveDemoEditors from './LiveDemoEditors';
+import { useThemeContext } from '@theguild/components';
 
 const groupedExamples = Object.keys(EXAMPLES).map(catName => {
   return {
@@ -88,7 +89,6 @@ export const LiveDemo = () => {
     setConfig(EXAMPLES[catName][index].config);
     setTemplate(value);
   };
-  const LiveDemoEditors = React.lazy(() => import('./LiveDemoEditors'));
 
   let mode = null;
 
@@ -113,6 +113,7 @@ export const LiveDemo = () => {
         </div>
         <div>
           <Select
+            isSearchable={false}
             styles={{
               menu: styles => ({ ...styles, ...(isDarkTheme ? { backgroundColor: 'black' } : {}) }),
               control: styles => ({ ...styles, ...(isDarkTheme ? { backgroundColor: 'black' } : {}) }),

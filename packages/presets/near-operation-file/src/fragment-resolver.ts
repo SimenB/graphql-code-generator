@@ -128,7 +128,8 @@ function buildFragmentRegistry(
 export default function buildFragmentResolver<T>(
   collectorOptions: DocumentImportResolverOptions,
   presetOptions: Types.PresetFnArgs<T>,
-  schemaObject: GraphQLSchema
+  schemaObject: GraphQLSchema,
+  dedupeFragments = false
 ) {
   const fragmentRegistry = buildFragmentRegistry(collectorOptions, presetOptions, schemaObject);
   const { baseOutputDir } = presetOptions;
@@ -146,7 +147,12 @@ export default function buildFragmentResolver<T>(
       if (fragmentDetails) {
         // add top level references to the import object
         // we don't checkf or global namespace because the calling config can do so
-        if (level === 0) {
+        if (
+          level === 0 ||
+          (dedupeFragments &&
+            documentFileContent.definitions[0].kind === 'OperationDefinition' &&
+            documentFileContent.definitions[0].operation === 'query')
+        ) {
           if (fragmentFileImports[fragmentDetails.filePath] === undefined) {
             fragmentFileImports[fragmentDetails.filePath] = fragmentDetails.imports;
           } else {

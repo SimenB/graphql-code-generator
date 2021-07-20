@@ -422,7 +422,7 @@ describe('C#', () => {
           [JsonRequired]
           public int intReq { get; set; }
           [JsonRequired]
-          public float fltReq { get; set; }
+          public double fltReq { get; set; }
           [JsonRequired]
           public string idReq { get; set; }
           [JsonRequired]
@@ -446,10 +446,29 @@ describe('C#', () => {
 
         expect(result).toBeSimilarStringTo(`
           public int? intOpt { get; set; }
-          public float? fltOpt { get; set; }
+          public double? fltOpt { get; set; }
           public string idOpt { get; set; }
           public string strOpt { get; set; }
           public bool? boolOpt { get; set; }
+        `);
+      });
+
+      it('Should properly treat DateTime nullability', async () => {
+        const schema = buildSchema(/* GraphQL */ `
+          type Test {
+            dateOptional: Date
+            dateMandatory: Date!
+          }
+
+          scalar Date
+        `);
+        const result = await plugin(schema, [], {}, { outputFile: '' });
+
+        expect(result).toBeSimilarStringTo(`
+          [JsonProperty("dateOptional")]
+          public DateTime? dateOptional { get; set; }
+          [JsonProperty("dateMandatory")]
+          public DateTime dateMandatory { get; set; }
         `);
       });
     });
@@ -494,7 +513,7 @@ describe('C#', () => {
 
         expect(result).toBeSimilarStringTo(`
           public IEnumerable<int> arr1 { get; set; }
-          public IEnumerable<float?> arr2 { get; set; }
+          public IEnumerable<double?> arr2 { get; set; }
           [JsonRequired]
           public IEnumerable<int?> arr3 { get; set; }
           [JsonRequired]
@@ -521,7 +540,7 @@ describe('C#', () => {
         expect(result).toBeSimilarStringTo(`
           public IEnumerable<IEnumerable<int>> arr1 { get; set; }
           [JsonRequired]
-          public IEnumerable<IEnumerable<IEnumerable<float?>>> arr2 { get; set; }
+          public IEnumerable<IEnumerable<IEnumerable<double?>>> arr2 { get; set; }
           [JsonRequired]
           public IEnumerable<IEnumerable<Complex>> arr3 { get; set; }
         `);
@@ -542,7 +561,7 @@ describe('C#', () => {
 
         expect(result).toBeSimilarStringTo(`
           public int? @int { get; set; }
-          public float? @float { get; set; }
+          public double? @float { get; set; }
           public string @string { get; set; }
           public bool? @bool { get; set; }
         `);
@@ -573,7 +592,7 @@ describe('C#', () => {
 
       expect(result).toBeSimilarStringTo(`
         public int? val { get; set; }
-        public float? flt { get; set; }
+        public double? flt { get; set; }
         public string str { get; set; }
         public bool? flag { get; set; }
         public Length? hair { get; set; }

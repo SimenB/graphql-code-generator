@@ -1,5 +1,47 @@
 # @graphql-codegen/visitor-plugin-common
 
+## 1.22.0
+
+### Minor Changes
+
+- 9005cc17: add `allowEnumStringTypes` option for allowing string literals as valid return types from resolvers in addition to enum values.\_
+
+### Patch Changes
+
+- df19a4ed: Allow multiple `{T}` instances in defaultMapper
+- Updated dependencies [470336a1]
+  - @graphql-codegen/plugin-helpers@1.18.8
+
+## 1.21.3
+
+### Patch Changes
+
+- 6762aff5: Fix for array types with @skip @include directives
+
+## 1.21.2
+
+### Patch Changes
+
+- 6aaecf1c: Fix issues with missing sub-fragments when skipTypename: true
+
+## 1.21.1
+
+### Patch Changes
+
+- cf1e5abc: Introduce new feature for removing duplicated fragments
+
+## 1.21.0
+
+### Minor Changes
+
+- 8da7dff6: Skip typechecking on generated values by casting to unknown
+
+### Patch Changes
+
+- dfd25caf: chore(deps): bump graphql-tools versions
+- Updated dependencies [dfd25caf]
+  - @graphql-codegen/plugin-helpers@1.18.7
+
 ## 1.20.0
 
 ### Minor Changes

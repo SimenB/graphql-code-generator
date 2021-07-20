@@ -1,5 +1,56 @@
 # @graphql-codegen/typescript-operations
 
+## 1.18.4
+
+### Patch Changes
+
+- Updated dependencies [df19a4ed]
+- Updated dependencies [470336a1]
+- Updated dependencies [9005cc17]
+  - @graphql-codegen/visitor-plugin-common@1.22.0
+  - @graphql-codegen/plugin-helpers@1.18.8
+  - @graphql-codegen/typescript@1.23.0
+
+## 1.18.3
+
+### Patch Changes
+
+- 6762aff5: Fix for array types with @skip @include directives
+- Updated dependencies [6762aff5]
+  - @graphql-codegen/visitor-plugin-common@1.21.3
+  - @graphql-codegen/typescript@1.22.4
+
+## 1.18.2
+
+### Patch Changes
+
+- 6aaecf1c: Fix issues with missing sub-fragments when skipTypename: true
+- Updated dependencies [6aaecf1c]
+  - @graphql-codegen/visitor-plugin-common@1.21.2
+  - @graphql-codegen/typescript@1.22.3
+
+## 1.18.1
+
+### Patch Changes
+
+- Updated dependencies [cf1e5abc]
+  - @graphql-codegen/visitor-plugin-common@1.21.1
+  - @graphql-codegen/typescript@1.22.2
+
+## 1.18.0
+
+### Minor Changes
+
+- 0a909869: Add arrayInputCoercion option
+
+### Patch Changes
+
+- Updated dependencies [dfd25caf]
+- Updated dependencies [8da7dff6]
+  - @graphql-codegen/visitor-plugin-common@1.21.0
+  - @graphql-codegen/plugin-helpers@1.18.7
+  - @graphql-codegen/typescript@1.22.1
+
 ## 1.17.16
 
 ### Patch Changes

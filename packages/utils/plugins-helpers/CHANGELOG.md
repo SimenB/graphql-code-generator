@@ -1,5 +1,23 @@
 # @graphql-codegen/plugin-helpers
 
+## 1.18.8
+
+### Patch Changes
+
+- 470336a1: don't require plugins for for config if preset provides plugin. Instead the preset should throw if no plugins were provided.
+
+## 1.18.7
+
+### Patch Changes
+
+- dfd25caf: chore(deps): bump graphql-tools versions
+
+## 1.18.6
+
+### Patch Changes
+
+- 637338cb: fix: make lifecycle hooks definition a partial
+
 ## 1.18.5
 
 ### Patch Changes

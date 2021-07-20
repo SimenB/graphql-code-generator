@@ -1,5 +1,28 @@
 # @graphql-codegen/cli
 
+## 1.21.7
+
+### Patch Changes
+
+- 470336a1: don't require plugins for for config if preset provides plugin. Instead the preset should throw if no plugins were provided.
+- Updated dependencies [470336a1]
+  - @graphql-codegen/plugin-helpers@1.18.8
+
+## 1.21.6
+
+### Patch Changes
+
+- 3b82d1bd: update chokidar
+
+## 1.21.5
+
+### Patch Changes
+
+- dfd25caf: chore(deps): bump graphql-tools versions
+- Updated dependencies [dfd25caf]
+  - @graphql-codegen/core@1.17.10
+  - @graphql-codegen/plugin-helpers@1.18.7
+
 ## 1.21.4
 
 ### Patch Changes

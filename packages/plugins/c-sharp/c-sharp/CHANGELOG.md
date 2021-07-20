@@ -1,5 +1,61 @@
 # @graphql-codegen/c-sharp
 
+## 3.0.2
+
+### Patch Changes
+
+- Updated dependencies [df19a4ed]
+- Updated dependencies [470336a1]
+- Updated dependencies [9005cc17]
+  - @graphql-codegen/visitor-plugin-common@1.22.0
+  - @graphql-codegen/plugin-helpers@1.18.8
+
+## 3.0.1
+
+### Patch Changes
+
+- Updated dependencies [6762aff5]
+  - @graphql-codegen/visitor-plugin-common@1.21.3
+
+## 3.0.0
+
+### Major Changes
+
+- 562e6a85: Consider DateTime as builtin C# value type
+
+### Patch Changes
+
+- Updated dependencies [6aaecf1c]
+  - @graphql-codegen/visitor-plugin-common@1.21.2
+
+## 2.0.2
+
+### Patch Changes
+
+- 49a2c3b0: Replace float with double
+- Updated dependencies [cf1e5abc]
+  - @graphql-codegen/visitor-plugin-common@1.21.1
+
+## 2.0.1
+
+### Patch Changes
+
+- Updated dependencies [dfd25caf]
+- Updated dependencies [8da7dff6]
+  - @graphql-codegen/visitor-plugin-common@1.21.0
+  - @graphql-codegen/plugin-helpers@1.18.7
+
+## 2.0.0
+
+### Major Changes
+
+- 0d3b202a: According to feedback, it is needed to remove the access modifiers for interface properties.
+
+### Patch Changes
+
+- Updated dependencies [637338cb]
+  - @graphql-codegen/plugin-helpers@1.18.6
+
 ## 1.19.0
 
 ### Minor Changes

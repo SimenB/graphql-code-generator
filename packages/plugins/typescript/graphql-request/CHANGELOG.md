@@ -1,5 +1,57 @@
 # @graphql-codegen/typescript-graphql-request
 
+## 3.2.5
+
+### Patch Changes
+
+- Updated dependencies [df19a4ed]
+- Updated dependencies [470336a1]
+- Updated dependencies [9005cc17]
+  - @graphql-codegen/visitor-plugin-common@1.22.0
+  - @graphql-codegen/plugin-helpers@1.18.8
+
+## 3.2.4
+
+### Patch Changes
+
+- Updated dependencies [6762aff5]
+  - @graphql-codegen/visitor-plugin-common@1.21.3
+
+## 3.2.3
+
+### Patch Changes
+
+- Updated dependencies [6aaecf1c]
+  - @graphql-codegen/visitor-plugin-common@1.21.2
+
+## 3.2.2
+
+### Patch Changes
+
+- Updated dependencies [cf1e5abc]
+  - @graphql-codegen/visitor-plugin-common@1.21.1
+
+## 3.2.1
+
+### Patch Changes
+
+- dfd25caf: chore(deps): bump graphql-tools versions
+- Updated dependencies [dfd25caf]
+- Updated dependencies [8da7dff6]
+  - @graphql-codegen/visitor-plugin-common@1.21.0
+  - @graphql-codegen/plugin-helpers@1.18.7
+
+## 3.2.0
+
+### Minor Changes
+
+- 9b59605d: feat(typescript-graphql-request): Add enhancements to request middleware function (#5883, #5807) #5884
+
+### Patch Changes
+
+- Updated dependencies [637338cb]
+  - @graphql-codegen/plugin-helpers@1.18.6
+
 ## 3.1.1
 
 ### Patch Changes

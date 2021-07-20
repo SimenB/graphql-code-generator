@@ -1,5 +1,50 @@
 # @graphql-codegen/java-resolvers
 
+## 1.18.5
+
+### Patch Changes
+
+- Updated dependencies [df19a4ed]
+- Updated dependencies [470336a1]
+- Updated dependencies [9005cc17]
+  - @graphql-codegen/visitor-plugin-common@1.22.0
+  - @graphql-codegen/plugin-helpers@1.18.8
+  - @graphql-codegen/java-common@1.17.13
+
+## 1.18.4
+
+### Patch Changes
+
+- Updated dependencies [6762aff5]
+  - @graphql-codegen/visitor-plugin-common@1.21.3
+  - @graphql-codegen/java-common@1.17.12
+
+## 1.18.3
+
+### Patch Changes
+
+- Updated dependencies [6aaecf1c]
+  - @graphql-codegen/visitor-plugin-common@1.21.2
+  - @graphql-codegen/java-common@1.17.11
+
+## 1.18.2
+
+### Patch Changes
+
+- Updated dependencies [cf1e5abc]
+- Updated dependencies [541e5497]
+  - @graphql-codegen/visitor-plugin-common@1.21.1
+  - @graphql-codegen/java-common@1.17.10
+
+## 1.18.1
+
+### Patch Changes
+
+- Updated dependencies [dfd25caf]
+- Updated dependencies [8da7dff6]
+  - @graphql-codegen/visitor-plugin-common@1.21.0
+  - @graphql-codegen/plugin-helpers@1.18.7
+
 ## 1.18.0
 
 ### Minor Changes

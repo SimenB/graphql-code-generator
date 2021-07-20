@@ -1,5 +1,50 @@
 # @graphql-codegen/typescript-type-graphql
 
+## 1.18.9
+
+### Patch Changes
+
+- Updated dependencies [df19a4ed]
+- Updated dependencies [470336a1]
+- Updated dependencies [9005cc17]
+  - @graphql-codegen/visitor-plugin-common@1.22.0
+  - @graphql-codegen/plugin-helpers@1.18.8
+  - @graphql-codegen/typescript@1.23.0
+
+## 1.18.8
+
+### Patch Changes
+
+- Updated dependencies [6762aff5]
+  - @graphql-codegen/visitor-plugin-common@1.21.3
+  - @graphql-codegen/typescript@1.22.4
+
+## 1.18.7
+
+### Patch Changes
+
+- Updated dependencies [6aaecf1c]
+  - @graphql-codegen/visitor-plugin-common@1.21.2
+  - @graphql-codegen/typescript@1.22.3
+
+## 1.18.6
+
+### Patch Changes
+
+- Updated dependencies [cf1e5abc]
+  - @graphql-codegen/visitor-plugin-common@1.21.1
+  - @graphql-codegen/typescript@1.22.2
+
+## 1.18.5
+
+### Patch Changes
+
+- Updated dependencies [dfd25caf]
+- Updated dependencies [8da7dff6]
+  - @graphql-codegen/visitor-plugin-common@1.21.0
+  - @graphql-codegen/plugin-helpers@1.18.7
+  - @graphql-codegen/typescript@1.22.1
+
 ## 1.18.4
 
 ### Patch Changes

@@ -43,6 +43,7 @@
       "@graphql-codegen/typescript-apollo-angular": ["packages/plugins/typescript/apollo-angular/src/index.ts"],
       "@graphql-codegen/typescript-compatibility": ["packages/plugins/typescript/compatibility/src/index.ts"],
       "@graphql-codegen/typescript-document-nodes": ["packages/plugins/typescript/document-nodes/src/index.ts"],
+      "@graphql-codegen/typescript-enum-array": ["packages/plugins/typescript/enum-array/src/index.ts"],
       "@graphql-codegen/typescript-generic-sdk": ["packages/plugins/typescript/generic-sdk/src/index.ts"],
       "@graphql-codegen/typescript-graphql-files-modules": [
         "packages/plugins/typescript/graphql-files-modules/src/index.ts"
@@ -59,7 +60,11 @@
       "@graphql-codegen/typed-document-node": ["packages/plugins/typescript/typed-document-node/src/index.ts"],
       "@graphql-codegen/typescript": ["packages/plugins/typescript/typescript/src/index.ts"],
       "@graphql-codegen/typescript-urql": ["packages/plugins/typescript/urql/src/index.ts"],
+      "@graphql-codegen/typescript-vue-urql": ["packages/plugins/typescript/urql/src/index.ts"],
       "@graphql-codegen/typescript-vue-apollo": ["packages/plugins/typescript/vue-apollo/src/index.ts"],
+      "@graphql-codegen/typescript-vue-apollo-smart-ops": [
+        "packages/plugins/typescript/vue-apollo-smart-ops/src/index.ts"
+      ],
       "@graphql-codegen/c-sharp": ["packages/plugins/c-sharp/c-sharp/src/index.ts"],
       "@graphql-codegen/c-sharp-apollo": ["packages/plugins/c-sharp/apollo-dot-net/src/index.ts"],
       "@graphql-codegen/import-types-preset": ["packages/presets/import-types/src/index.ts"],
