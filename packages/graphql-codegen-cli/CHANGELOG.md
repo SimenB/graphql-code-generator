@@ -1,5 +1,17 @@
 # @graphql-codegen/cli
 
+## 2.1.0
+
+### Minor Changes
+
+- 440172cfe: support ESM
+
+### Patch Changes
+
+- Updated dependencies [440172cfe]
+  - @graphql-codegen/core@2.1.0
+  - @graphql-codegen/plugin-helpers@2.1.0
+
 ## 2.0.1
 
 ### Patch Changes
